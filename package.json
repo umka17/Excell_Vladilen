@@ -1,0 +1,26 @@
+{
+  "name": "excel_vladilen",
+  "version": "1.0.0",
+  "description": "excel app on valina js with vladilen course ",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umka17/Excell_Vladilen.git"
+  },
+  "keywords": [
+    "JS",
+    "JavaScript",
+    "excel",
+    "lesson"
+  ],
+  "author": "Umka 17 <uxuxxr21@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umka17/Excell_Vladilen/issues"
+  },
+  "homepage": "https://github.com/umka17/Excell_Vladilen#readme",
+  "private":true
+}
