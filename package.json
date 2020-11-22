@@ -4,7 +4,9 @@
   "description": "excel app on valina js with vladilen course ",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,9 @@
     "url": "https://github.com/umka17/Excell_Vladilen/issues"
   },
   "homepage": "https://github.com/umka17/Excell_Vladilen#readme",
-  "private":true
+  "private": true,
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
 }
