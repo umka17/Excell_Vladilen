@@ -12,6 +12,13 @@ module.exports = {
         filename: 'bundle.[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
+    resolve: {
+        extensions: ['.js'],
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+            '@core': path.resolve(__dirname, 'src/core')
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html'
