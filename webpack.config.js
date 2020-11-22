@@ -36,5 +36,41 @@ module.exports = {
             filename: '[name].[hash].css'
         })
     ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath:''
+                    }
+                },'css-loader']
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath:''
+                    }
+                },
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
+
 
 }

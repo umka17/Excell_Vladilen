@@ -1,4 +1,4 @@
 import './module';
-import './styles/main.css'
+import './styles/main.scss'
 
 console.log('Working!')
