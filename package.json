@@ -26,6 +26,10 @@
   "homepage": "https://github.com/umka17/Excell_Vladilen#readme",
   "private": true,
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.3.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   }
