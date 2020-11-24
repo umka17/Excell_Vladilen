@@ -1,4 +1,4 @@
 import './module';
-import './styles/main.scss'
+import './styles/index.scss';
 
-console.log('lo!')
+console.log('lo!');
