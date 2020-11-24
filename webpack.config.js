@@ -50,6 +50,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new HtmlWebpackPlugin({
+      template: './dashboard.html',
+      filename: 'dashboard.html',
+    }),
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
