@@ -32,12 +32,8 @@ module.exports = {
   },
   devtool: isDev? 'source-map': false,
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
     port: 9000,
     open: true,
-    hot: isDev,
-    liveReload: false,
-    clientLogLevel: 'none',
   },
   resolve: {
     extensions: ['.js'],
