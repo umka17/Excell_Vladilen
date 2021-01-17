@@ -14,6 +14,7 @@ const jsLoaders = () => {
     loader: 'babel-loader',
     options: {
       presets: ['@babel/preset-env'],
+      plugins: ['@babel/plugin-proposal-class-properties']
     },
   }];
   if (isDev) {
@@ -46,10 +47,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
-    new HtmlWebpackPlugin({
-      template: './dashboard.html',
-      filename: 'dashboard.html',
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './dashboard.html',
+    //   filename: 'dashboard.html',
+    // }),
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
@@ -93,6 +94,4 @@ module.exports = {
       },
     ],
   },
-
-
 };
