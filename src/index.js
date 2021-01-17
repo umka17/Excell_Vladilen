@@ -1,10 +1,12 @@
-import './module';
+import {Excel} from '@/components/excel/Excel';
 import './styles/index.scss';
+import {Toolbar} from '@/components/toolbar/Toolbar';
+import {Formula} from '@/components/formula/Formula';
+import {Table} from '@/components/table/Table';
+import {Header} from '@/components/header/Header';
 
-// eslint-disable-next-line require-jsdoc
-async function start() {
-  await Promise.resolve('Nothing');
-}
+const excel = new Excel('#app', {
+  components: [Header, Toolbar, Formula,  Table],
+});
 
-start();
-console.log('lo!');
+excel.render();

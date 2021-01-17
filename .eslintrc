@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "jsdoc"
+  ],
   "parser": "babel-eslint",
   "env": {
     "es6": true,
@@ -6,7 +9,8 @@
     "node": true
   },
   "rules": {
-
+    "linebreak-style": "warn",
+    "no-debugger": "off"
   },
-  "extends":["eslint:recommended", "google"]
+  "extends":["eslint:recommended"]
 }
