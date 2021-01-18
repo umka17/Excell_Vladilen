@@ -1,48 +1,46 @@
 // this ==== $root
-
 class Dom {
   constructor(selector) {
-    this.$el =( typeof selector === 'string' ? document.querySelector(selector) : selector)
+    // eslint-disable-next-line max-len
+    this.$el =( typeof selector === 'string' ? document.querySelector(selector) : selector);
   }
-  html(html){
-    if(typeof html === 'string'){
-      this.$el.innerHTML = html
-      return this
+  html(html) {
+    if (typeof html === 'string') {
+      this.$el.innerHTML = html;
+      return this;
+    } else this.$el.outerHTML.trim();
+  }
+  clear() {
+    this.html('');
+    return this;
+  }
+  append(node) {
+    if (node instanceof Dom) {
+      node = node.$el;
     }
-    else this.$el.outerHTML.trim()
-  }
-  clear(){
-    this.html('')
-    return this
-  }
-  append(node){
-    if(node instanceof Dom){
-      node = node.$el
+    if (Element.prototype.append) {
+      this.$el.append(node);
+    } else {
+      this.$el.appendChild(node);
     }
-    if(Element.prototype.append){
-      this.$el.append(node)
-    }
-    else {
-      this.$el.appendChild(node)
-    }
-    return this
+    return this;
   }
-  on(listener, callback){
-    this.$el.addEventListener(listener, callback)
+  on(listener, callback) {
+    this.$el.addEventListener(listener, callback);
   }
-  off(listener, callback ){
-    this.$el.removeEventListener(listener, callback)
+  off(listener, callback ) {
+    this.$el.removeEventListener(listener, callback);
   }
 }
 
 export function $(selector) {
-  return  new Dom(selector)
+  return new Dom(selector);
 }
 
 $.create = (tagName, classes) => {
   const el = document.createElement(tagName);
-  if(classes) {
-    el.classList.add(classes)
+  if (classes) {
+    el.classList.add(classes);
   }
-  return $(el)
-}
+  return $(el);
+};
