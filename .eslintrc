@@ -9,8 +9,9 @@
     "node": true
   },
   "rules": {
-    "linebreak-style": "warn",
-    "no-debugger": "off"
+    "linebreak-style": "off",
+    "no-debugger": "off",
+    "require-jsdoc": "off"
   },
-  "extends":["eslint:recommended"]
+  "extends":["eslint:recommended","google"]
 }
