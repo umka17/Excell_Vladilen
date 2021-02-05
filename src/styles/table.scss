@@ -85,6 +85,7 @@
     opacity: 0;
 
     background-color: $primary-color;
+    z-index: 1;
 
     &:hover{
       cursor: col-resize;
