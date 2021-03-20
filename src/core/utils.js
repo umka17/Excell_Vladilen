@@ -4,3 +4,18 @@ export function capitalize(string) {
   }
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+export function isCell(event) {
+  return event.target.dataset.type === 'cell';
+}
+
+
+export function range(start, end) {
+  if (start > end) {
+    [end, start] = [start, end];
+  }
+  const arr = new Array(end - start + 1)
+      .fill('')
+      .map((_, index) => start + index);
+  return arr;
+}

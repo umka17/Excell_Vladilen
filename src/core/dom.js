@@ -1,15 +1,28 @@
 // this ==== $root
 class Dom {
   constructor(selector) {
-    // eslint-disable-next-line max-len
-    this.$el =( typeof selector === 'string' ? document.querySelector(selector) : selector);
+    this.$el = typeof selector === 'string' ?
+      document.querySelector(selector) :
+      selector;
   }
 
   html(html) {
     if (typeof html === 'string') {
       this.$el.innerHTML = html;
       return this;
-    } else this.$el.outerHTML.trim();
+    }
+    return this.$el.outerHTML.trim();
+  }
+
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.textContent = text;
+      return this;
+    }
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim();
+    }
+    return this.$el.textContent.trim();
   }
 
   clear() {
@@ -17,57 +30,89 @@ class Dom {
     return this;
   }
 
+  on(eventType, callback) {
+    this.$el.addEventListener(eventType, callback);
+  }
+
+  off(eventType, callback) {
+    this.$el.removeEventListener(eventType, callback);
+  }
+
   append(node) {
     if (node instanceof Dom) {
       node = node.$el;
     }
+
     if (Element.prototype.append) {
       this.$el.append(node);
     } else {
       this.$el.appendChild(node);
     }
+
     return this;
-  }
-
-  on(listener, callback) {
-    this.$el.addEventListener(listener, callback);
-  }
-
-  off(listener, callback ) {
-    this.$el.removeEventListener(listener, callback);
   }
 
   get data() {
     return this.$el.dataset;
   }
 
-  findAll(selector) {
-    return this.$el.querySelectorAll(selector);
-  }
-
-  css(styles = {}) {
-    Object
-        .entries(styles)
-        .forEach((item) =>{
-          this.$el.style[item[0]] = item[1];
-        });
-  }
-
-
   closest(selector) {
     return $(this.$el.closest(selector));
   }
 
-  getCordinats() {
+  getCoords() {
     return this.$el.getBoundingClientRect();
+  }
+
+  focus() {
+    this.$el.focus();
+    return this;
+  }
+
+  find(selector) {
+    return $(this.$el.querySelector(selector));
+  }
+
+  findAll(selector) {
+    return this.$el.querySelectorAll(selector);
+  }
+
+  addClass(className) {
+    this.$el.classList.add(className);
+    return this;
+  }
+
+  removeClass(className) {
+    this.$el.classList.remove(className);
+    return this;
+  }
+
+  css(styles = {}) {
+    Object
+        .keys(styles)
+        .forEach((key) => {
+          this.$el.style[key] = styles[key];
+        });
+  }
+
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':');
+      return {
+        row: +parsed[0],
+        col: +parsed[1],
+      };
+    }
+    return this.data.id;
   }
 }
 
 export function $(selector) {
+  if (selector instanceof Dom) return selector;
   return new Dom(selector);
 }
 
-$.create = (tagName, classes) => {
+$.create = (tagName, classes = '') => {
   const el = document.createElement(tagName);
   if (classes) {
     el.classList.add(classes);
