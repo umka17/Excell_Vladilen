@@ -30,6 +30,7 @@ export function nextSelector(key, {row, col}) {
       col++;
       break;
     case 'ArrowLeft':
+    case 'Tab+LeftSh':
       col = col - 1 < MIN_VALUE ? MIN_VALUE : col - 1;
       break;
     case 'ArrowUp':

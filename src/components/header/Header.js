@@ -1,10 +1,20 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 
 export class Header extends ExcelComponent {
+  constructor($root, options) {
+    super($root, {
+      name: 'Header',
+      ...options,
+    });
+  }
   static className = 'excel__header'
   toHTML() {
-    // eslint-disable-next-line max-len
-    return ` <input type="text" name="nameTable" class="input" id="name-table-field" value="Новая таблица">
+    return ` <input 
+                    type="text" 
+                    name="nameTable" 
+                    class="input" 
+                    id="name-table-field" 
+                    value="Новая таблица">
                 <div>
                     <div class="button">
                         <span class="material-icons">delete</span>
