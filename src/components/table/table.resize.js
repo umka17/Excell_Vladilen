@@ -41,10 +41,9 @@ export function resizeHandler($root, event) {
         });
         resolve({
           value,
-          id: type === 'col' ? $parent.data.col: null,
-        }
-        // {[$parent.data.col]: value }
-        );
+          type,
+          id: $parent.data[type],
+        });
 
         document.onmousemove = null;
         document.onmouseup = null;
@@ -91,6 +90,12 @@ export function resizeHandler($root, event) {
           bottom: 0,
           opacity: '',
           right: '',
+        });
+
+        resolve({
+          value,
+          type,
+          id: $parent.data[type],
         });
 
         document.onmousemove = null;
