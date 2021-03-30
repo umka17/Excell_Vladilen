@@ -21,14 +21,15 @@ export class Formula extends ExcelComponent {
   init() {
     super.init();
 
-    const $formula = this.$root.find('.input');
-    this.$on('table:input', (text) => {
-      $formula.text(text);
+    this.$formula = this.$root.find('.input');
+    this.$on('table:select', (text) => {
+      this.$formula.text(text);
     });
 
-    // this.$subscribe((state) => {
-    //   console.log('FormulaState', this.store.getState());
-    // });
+    this.$subscribe((state) => {
+      console.log('FormulaState', state.currentText);
+      this.$formula.text(state.currentText);
+    });
   }
 
   onInput(event) {
