@@ -46,19 +46,6 @@ export class Table extends ExcelComponent {
     this.$on('formula:enter', () => {
       this.selection.current.focus();
     });
-    // this.$subscribe((state) => {
-    //   console.log('TableState', this.store.getState());
-    // });
-
-    // Object.entries(storage('excel-state').colState)
-    //     .forEach((item) => {
-    //       this.$root.findAll(`[data-col="${item[0]}"]`)
-    //           .forEach((el) => {
-    //             $(el).css({
-    //               width: item[1] + 'px',
-    //             });
-    //           });
-    //     });
   }
 
   selectCell($cell) {
@@ -69,7 +56,6 @@ export class Table extends ExcelComponent {
 
   async resizeTable(event) {
     const data = await resizeHandler(this.$root, event);
-    console.log(data);
     this.$dispatch(actions.tableResize(data));
   }
 
