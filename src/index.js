@@ -5,16 +5,16 @@ import {Table} from '@/components/table/Table';
 import {Header} from '@/components/header/Header';
 import {createStore} from '@core/createStore';
 import {rootReducer} from '@/redux/rootReducer';
-// import {storage} from '@core/utils';
+import {storage} from '@core/utils';
 import {initialState} from '@/redux/initialState';
 import './styles/index.scss';
 
 const store = createStore(rootReducer, initialState);
 
-// store.subscribe((state) => {
-//   console.log('App state', state);
-//   storage('excel-state', state);
-// });
+store.subscribe((state) => {
+  // console.log('App state', state);
+  storage('excel-state', state);
+});
 
 const excel = new Excel('#app', {
   components: [Header, Toolbar, Formula, Table],

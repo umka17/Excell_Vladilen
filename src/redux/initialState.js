@@ -5,6 +5,7 @@ const defaultState = {
   rowState: {},
   dataState: {},
   currentText: '',
+  title: 'Новая таблица',
 };
 
 export const initialState = storage('excel-state') ?

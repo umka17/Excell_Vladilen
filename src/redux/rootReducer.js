@@ -1,4 +1,4 @@
-import {CHANGE_TEXT, TABLE_RESIZE} from '@/redux/type';
+import {CHANGE_TEXT, CHANGE_TITLE, TABLE_RESIZE} from '@/redux/type';
 
 export function rootReducer(state, action) {
   let prevState;
@@ -19,6 +19,9 @@ export function rootReducer(state, action) {
         currentText: action.data.value,
         dataState: prevState,
       };
+    case CHANGE_TITLE:
+      console.log('title', action.title);
+      return state = {...state, title: action.title};
     default: return state;
   }
 }
