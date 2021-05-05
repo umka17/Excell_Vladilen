@@ -2,7 +2,6 @@
   "name": "excel_vladilen",
   "version": "1.0.0",
   "description": "excel app on valina js with vladilen course ",
-  "main": "webpack.config.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve ",
     "dev": "cross-env NODE_ENV=development webpack ",
